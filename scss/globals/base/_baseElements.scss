@@ -1,0 +1,17 @@
+body {
+  font-family: var(--font-primary);
+  margin: 0;
+  background-color: var(--white);
+  color: var(--gray-300);
+  font-size: var(--fs-body);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}

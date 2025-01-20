@@ -1,0 +1,114 @@
+nav {
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
+  transition: all 0.3s;
+  .menu {
+    display: none;
+    margin-right: 1rem;
+  }
+  .navbar {
+    display: flex;
+    margin: 2.56rem 0;
+    // padding: 0 0 2rem 0;
+    align-items: baseline;
+    max-width: 70.5rem;
+    width: 100%;
+    border-bottom: 2px solid var(--gray-100);
+    div {
+      img {
+        cursor: pointer;
+      }
+      &:first-of-type .navbar-nav {
+        display: flex;
+        list-style: none;
+        text-decoration: none;
+        gap: 2.5rem;
+        margin: 0;
+        li {
+          font-size: var(--fs-s);
+          max-width: 26.94rem;
+          padding-bottom: 2.81rem;
+          transition: all 0.3s;
+          &:hover {
+            color: var(--darkBlue);
+            border-bottom: 2px solid orange;
+          }
+        }
+        a {
+          text-decoration: none;
+        }
+        .cart {
+          min-width: 22px;
+        }
+      }
+      &:last-of-type {
+        margin-left: auto;
+        .navbar-nav {
+          display: flex;
+          align-items: center;
+          list-style: none;
+          .avatar {
+            max-width: 50px;
+            margin-left: 2.89rem;
+            border-radius: 50%;
+            // transition: 0.3s ease-in-out;
+            // &:hover {
+            //   border: 2px solid orange;
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+
+.activeMenu {
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--white);
+  left: 0;
+  margin: 0;
+  width: 65%;
+  height: 100vh;
+  padding: 5rem 0 0 2rem;
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+}
+.overlay {
+  display: none;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  right: 0;
+  width: 35%;
+}
+
+//800px
+@media (max-width: 50rem) {
+  nav {
+    .navbar {
+      margin: 1.75rem 0 2rem 0;
+      .menu {
+        display: block;
+      }
+      div {
+        &:first-of-type .navbar-nav {
+          display: none;
+        }
+        &:last-of-type .navbar-nav {
+          .avatar {
+            margin-left: 1.39rem;
+          }
+        }
+      }
+    }
+  }
+}
