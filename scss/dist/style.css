@@ -300,14 +300,15 @@ nav .navbar div:first-of-type .navbar-nav li {
   font-size: var(--fs-s);
   max-width: 26.94rem;
   padding-bottom: 2.81rem;
-  transition: all 0.3s;
-}
-nav .navbar div:first-of-type .navbar-nav li:hover {
-  color: var(--darkBlue);
-  border-bottom: 2px solid orange;
 }
 nav .navbar div:first-of-type .navbar-nav a {
   text-decoration: none;
+  color: var(--gray-300);
+}
+nav .navbar div:first-of-type .navbar-nav a:hover {
+  color: var(--darkBlue);
+  border-bottom: 2px solid orange;
+  padding-bottom: 2.81rem;
 }
 nav .navbar div:first-of-type .navbar-nav .cart {
   min-width: 22px;
@@ -339,6 +340,10 @@ nav .navbar div:last-of-type .navbar-nav .avatar {
   font-weight: 700;
 }
 
+.main-list {
+  padding-bottom: 1rem;
+}
+
 .active {
   display: flex;
   flex-direction: column;
@@ -347,7 +352,7 @@ nav .navbar div:last-of-type .navbar-nav .avatar {
 .overlay {
   display: none;
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
   height: 100%;
   width: 100%;
   z-index: 1;
@@ -355,7 +360,7 @@ nav .navbar div:last-of-type .navbar-nav .avatar {
   width: 35%;
 }
 
-@media (max-width: 50rem) {
+@media (max-width: 53.13rem) {
   nav .navbar {
     margin: 1.75rem 0 2rem 0;
   }

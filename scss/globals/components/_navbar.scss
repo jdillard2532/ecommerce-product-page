@@ -29,14 +29,15 @@ nav {
           font-size: var(--fs-s);
           max-width: 26.94rem;
           padding-bottom: 2.81rem;
-          transition: all 0.3s;
-          &:hover {
-            color: var(--darkBlue);
-            border-bottom: 2px solid orange;
-          }
         }
         a {
           text-decoration: none;
+          color: var(--gray-300);
+          &:hover {
+            color: var(--darkBlue);
+            border-bottom: 2px solid orange;
+            padding-bottom: 2.81rem;
+          }
         }
         .cart {
           min-width: 22px;
@@ -76,6 +77,10 @@ nav {
   font-weight: 700;
 }
 
+.main-list {
+  padding-bottom: 1rem;
+}
+
 .active {
   display: flex;
   flex-direction: column;
@@ -83,7 +88,7 @@ nav {
 .overlay {
   display: none;
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
   height: 100%;
   width: 100%;
   z-index: 1;
@@ -91,8 +96,8 @@ nav {
   width: 35%;
 }
 
-//800px
-@media (max-width: 50rem) {
+//850px
+@media (max-width: 53.13rem) {
   nav {
     .navbar {
       margin: 1.75rem 0 2rem 0;
