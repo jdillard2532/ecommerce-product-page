@@ -236,7 +236,7 @@ nav .navbar div:last-of-type .navbar-nav .avatar {
 main {
   display: flex;
   justify-content: center;
-  margin: 0 2rem;
+  margin: 0 2rem 2rem;
 }
 main .container {
   display: grid;
@@ -462,5 +462,22 @@ main .carousel-symbol {
   }
   main .carousel-symbol {
     padding: 0.8rem;
+  }
+}
+@media (max-width: 800px) {
+  main .container {
+    max-width: 30rem;
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 1000px) {
+  main .container {
+    gap: 2rem;
+  }
+  main .container .main-section:last-child {
+    padding-top: 0;
+  }
+  main .container .card-footer .card-footer-wrapper {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=style.css.map */

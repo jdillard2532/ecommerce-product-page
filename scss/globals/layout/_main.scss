@@ -1,7 +1,7 @@
 main {
   display: flex;
   justify-content: center;
-  margin: 0 2rem;
+  margin: 0 2rem 2rem;
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -255,10 +255,27 @@ main {
   }
 }
 
-// @media (max-width: 1000px) {
-//   main {
-//     .container {
-//       gap: 3rem;
-//     }
-//   }
-// }
+@media (max-width: 800px) {
+  main {
+    .container {
+      max-width: 30rem;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
+    .container {
+      gap: 2rem;
+      .main-section:last-child {
+        padding-top: 0;
+      }
+      .card-footer {
+        .card-footer-wrapper {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
