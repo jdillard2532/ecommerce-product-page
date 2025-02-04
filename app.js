@@ -17,6 +17,7 @@ const nextButton = document.querySelector(".next");
 const backButton = document.querySelector(".back");
 const mobileNextButton = document.querySelector(".mobile-next");
 const mobileBackButton = document.querySelector(".mobile-back");
+let number = 0;
 
 menuImage.addEventListener("click", () => {
   let mainList = document.querySelectorAll(".list-item a");
@@ -140,8 +141,27 @@ backButton.addEventListener("click", () => {
     }
   }
 });
+//mobile next button
+mobileNextButton.addEventListener("click", () => {
+  number++;
+  if (number < 4) {
+    findImage("normal", number);
+  } else {
+    number = 0;
+    findImage("normal", number);
+  }
+});
 
-mobileNextButton.addEventListener("click", () => {});
+//mobile back button
+mobileBackButton.addEventListener("click", () => {
+  number--;
+  if (number >= 0) {
+    findImage("normal", number);
+  } else {
+    number = 3;
+    findImage("normal", number);
+  }
+});
 //locate images
 function findImage(location, x) {
   let imageLookUp = [
