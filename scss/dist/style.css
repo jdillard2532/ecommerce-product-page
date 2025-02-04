@@ -144,6 +144,7 @@ nav .navbar div:first-of-type .navbar-nav {
   text-decoration: none;
   gap: 2.5rem;
   margin: 0;
+  z-index: 1;
 }
 nav .navbar div:first-of-type .navbar-nav li {
   font-size: var(--fs-s);
@@ -174,6 +175,14 @@ nav .navbar div:last-of-type .navbar-nav .avatar {
   max-width: 50px;
   margin-left: 2.89rem;
   border-radius: 50%;
+}
+
+.bodyOverlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
 }
 
 .activeMenu {
@@ -237,6 +246,11 @@ main .container {
 }
 main .container .main-product-thumbnail {
   border-radius: 15px;
+  cursor: pointer;
+}
+main .container .main-product-thumbnail-carousel {
+  border-radius: 15px;
+  max-width: 550px;
 }
 main .container .thumbnail-div {
   display: flex;
@@ -247,6 +261,40 @@ main .container .thumbnail-div {
 main .container .thumbnail-div img {
   border-radius: 15px;
   max-width: 88px;
+}
+main .container .thumbnail-div .product-thumbnail,
+main .container .thumbnail-div .carousel-thumbnail {
+  transition: 0.3s;
+}
+main .container .thumbnail-div .product-thumbnail:hover,
+main .container .thumbnail-div .carousel-thumbnail:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+main .container .main-section:first-child {
+  position: relative;
+}
+main .container .main-section:first-child .main-symbol {
+  position: absolute;
+  padding: 1rem;
+  background-color: var(--white);
+  width: 10.7%;
+  max-width: 56px;
+  max-height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main .container .main-section:first-child .mobile-next {
+  display: none;
+  position: absolute;
+  right: 4%;
+  top: 50%;
+}
+main .container .main-section:first-child .mobile-back {
+  display: none;
+  position: absolute;
+  left: 4%;
+  top: 50%;
 }
 main .container .main-section:last-child {
   padding-top: 3.88rem;
@@ -272,16 +320,15 @@ main .container .main-section:last-child h1 {
 }
 main .container .card-price {
   color: var(--darkBlue);
-}
-main .container .card-price div {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
 }
-main .container .card-price div h2 {
+main .container .card-price h2 {
   font-size: var(--fs-l);
 }
-main .container .card-price div p {
+main .container .card-price p:first-of-type {
   padding: 0.5rem 1.25rem;
   background-color: var(--darkBlue);
   color: var(--white);
@@ -291,7 +338,7 @@ main .container .card-price .full-price {
   text-decoration: line-through;
   color: var(--gray-300);
   font-weight: 700;
-  margin-top: 1rem;
+  width: 100%;
 }
 main .container .card-footer .card-footer-wrapper {
   display: flex;
@@ -322,21 +369,83 @@ main .container .card-footer .card-footer-wrapper .btnCart {
   cursor: pointer;
   flex-grow: 1;
   font-weight: 700;
+  transition: 0.3s;
+}
+main .container .card-footer .card-footer-wrapper .btnCart:hover {
+  background-color: #ffab6a;
 }
 main .container .card-footer .card-footer-wrapper .btnCart img {
   fill: var(--darkBlue);
   margin-right: 1rem;
 }
+main .container .main-carousel {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+main .container .main-carousel div {
+  position: relative;
+}
+main .container .main-carousel div .back {
+  top: 42%;
+  left: -5%;
+}
+main .container .main-carousel div .next {
+  top: 42%;
+  right: -5%;
+}
+main .container .main-carousel div svg {
+  position: absolute;
+  top: -10%;
+  right: 0;
+  background-color: transparent;
+  color: var(--white);
+  transition: 0.3s;
+  cursor: pointer;
+}
+main .container .main-carousel div svg:hover {
+  color: var(--orange-200);
+}
+main .container .main-carousel .main-product-thumbnail {
+  max-width: 550px;
+  cursor: default;
+}
+main .container .active {
+  border: 3px solid var(--orange-200);
+  opacity: 0.5;
+}
+main .carousel-symbol {
+  position: absolute;
+  padding: 1rem;
+  background-color: var(--white);
+  width: 10.7%;
+  max-width: 56px;
+  max-height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 @media (max-width: 500px) {
   main {
     margin: 0;
+    display: flex;
+    justify-content: normal;
   }
   main .container {
     display: block;
   }
   main .container .main-product-thumbnail {
     border-radius: 0;
+    cursor: default;
+  }
+  main .container .main-section:first-child .mobile-next {
+    display: block;
+  }
+  main .container .main-section:first-child .mobile-back {
+    display: block;
   }
   main .container .thumbnail-div {
     display: none;
@@ -350,5 +459,8 @@ main .container .card-footer .card-footer-wrapper .btnCart img {
   }
   main .container .card-footer .card-footer-wrapper {
     flex-direction: column;
+  }
+  main .carousel-symbol {
+    padding: 0.8rem;
   }
 }/*# sourceMappingURL=style.css.map */

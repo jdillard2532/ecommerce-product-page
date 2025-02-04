@@ -8,17 +8,55 @@ main {
     max-width: 66rem;
     gap: 7.81rem;
     .main-product-thumbnail {
-      // max-width: 445px;
       border-radius: 15px;
+      cursor: pointer;
+    }
+    .main-product-thumbnail-carousel {
+      border-radius: 15px;
+      max-width: 550px;
     }
     .thumbnail-div {
       display: flex;
       gap: 2rem;
       margin-top: 2rem;
       justify-content: space-between;
+
       img {
         border-radius: 15px;
         max-width: 88px;
+      }
+      .product-thumbnail,
+      .carousel-thumbnail {
+        transition: 0.3s;
+        &:hover {
+          opacity: 0.7;
+          cursor: pointer;
+        }
+      }
+    }
+    .main-section:first-child {
+      position: relative;
+      .main-symbol {
+        position: absolute;
+        padding: 1rem;
+        background-color: var(--white);
+        width: 10.7%;
+        max-width: 56px;
+        max-height: 56px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .mobile-next {
+        display: none;
+        position: absolute;
+        right: 4%;
+        top: 50%;
+      }
+      .mobile-back {
+        display: none;
+        position: absolute;
+        left: 4%;
+        top: 50%;
       }
     }
     .main-section:last-child {
@@ -45,25 +83,24 @@ main {
     }
     .card-price {
       color: var(--darkBlue);
-      div {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        h2 {
-          font-size: var(--fs-l);
-        }
-        p {
-          padding: 0.5rem 1.25rem;
-          background-color: var(--darkBlue);
-          color: var(--white);
-          border-radius: 6px;
-        }
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      h2 {
+        font-size: var(--fs-l);
+      }
+      p:first-of-type {
+        padding: 0.5rem 1.25rem;
+        background-color: var(--darkBlue);
+        color: var(--white);
+        border-radius: 6px;
       }
       .full-price {
         text-decoration: line-through;
         color: var(--gray-300);
         font-weight: 700;
-        margin-top: 1rem;
+        width: 100%;
       }
     }
     .card-footer {
@@ -96,6 +133,10 @@ main {
           cursor: pointer;
           flex-grow: 1;
           font-weight: 700;
+          transition: 0.3s;
+          &:hover {
+            background-color: #ffab6a;
+          }
           img {
             fill: var(--darkBlue);
             margin-right: 1rem;
@@ -103,17 +144,95 @@ main {
         }
       }
     }
+    .main-carousel {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      div {
+        position: relative;
+        // .carousel-symbol {
+        //   position: absolute;
+        //   padding: 1rem;
+        //   background-color: var(--white);
+        //   width: 10.7%;
+        //   max-width: 56px;
+        //   max-height: 56px;
+        //   border-radius: 50%;
+        //   cursor: pointer;
+        // }
+        .back {
+          top: 42%;
+          left: -5%;
+        }
+        .next {
+          top: 42%;
+          right: -5%;
+        }
+        svg {
+          position: absolute;
+          top: -10%;
+          right: 0;
+          background-color: transparent;
+          color: var(--white);
+          transition: 0.3s;
+          cursor: pointer;
+          &:hover {
+            color: var(--orange-200);
+          }
+        }
+      }
+      .main-product-thumbnail {
+        max-width: 550px;
+        cursor: default;
+      }
+    }
+    .active {
+      border: 3px solid var(--orange-200);
+      opacity: 0.5;
+    }
+  }
+  .carousel-symbol {
+    position: absolute;
+    padding: 1rem;
+    background-color: var(--white);
+    width: 10.7%;
+    max-width: 56px;
+    max-height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
   }
 }
 
 @media (max-width: 500px) {
   main {
     margin: 0;
+    display: flex;
+    justify-content: normal;
     .container {
       display: block;
       .main-product-thumbnail {
         border-radius: 0;
+        cursor: default;
       }
+      .main-section:first-child {
+        .mobile-next {
+          display: block;
+        }
+        .mobile-back {
+          display: block;
+        }
+      }
+      // .main-carousel {
+      //   display: block;
+      //   position: relative;
+      //   top: auto;
+      //   left: auto;
+      //   transform: none;
+      // }
+
       .thumbnail-div {
         display: none;
       }
@@ -129,6 +248,9 @@ main {
           flex-direction: column;
         }
       }
+    }
+    .carousel-symbol {
+      padding: 0.8rem;
     }
   }
 }
