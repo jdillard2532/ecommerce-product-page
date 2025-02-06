@@ -1,4 +1,5 @@
 const menuImage = document.querySelector(".menu");
+const navbar = document.querySelector(".navbar");
 const navbarNav = document.querySelectorAll(".navbar-nav");
 const mainNavbar = navbarNav[0];
 const listItem = document.querySelectorAll(".list-item");
@@ -8,6 +9,7 @@ const mainProductThumbnail = document.querySelector(".main-product-thumbnail");
 const mainProductThumbnailCarousel = document.querySelector(
   ".main-product-thumbnail-carousel"
 );
+const mainSection = document.querySelector(".main-section:first-child");
 const productThumbnail = document.querySelectorAll(".product-thumbnail");
 const carouselThumbnail = document.querySelectorAll(".carousel-thumbnail");
 const carousel = document.querySelector(".main-carousel");
@@ -17,7 +19,20 @@ const nextButton = document.querySelector(".next");
 const backButton = document.querySelector(".back");
 const mobileNextButton = document.querySelector(".mobile-next");
 const mobileBackButton = document.querySelector(".mobile-back");
-let number = 0;
+const counterIncrease = document.querySelector(".increaseNumber");
+const counterDecrease = document.querySelector(".decreaseNumber");
+const counterAmount = document.querySelector(".amount");
+const cartIcon = document.querySelector(".cart");
+const btnAddToCart = document.querySelector(".btnCart");
+const amount = document.querySelector(".amount");
+const cartPrice = document.querySelector(".cartPrice");
+const cartNumber = document.querySelector(".cartNumber");
+const cartTotal = document.querySelector(".cartTotal");
+const deleteCart = document.querySelector(".deleteCart");
+const cartWrapper = document.querySelector(".cartWrapper");
+const emptyCart = document.querySelector(".emptyWrapper");
+
+let number = 0; // used to change main image on mobile view
 
 menuImage.addEventListener("click", () => {
   let mainList = document.querySelectorAll(".list-item a");
@@ -60,15 +75,14 @@ menuImage.addEventListener("click", () => {
 //     });
 //   }
 // });
-nextButton.addEventListener("mouseenter", (e) => {
-  console.log(e);
-  e.target.style.fill = "var(--orange-200)";
-});
+
 mainProductThumbnail.addEventListener("click", () => {
   let screenSize = window.innerWidth;
   if (screenSize > 500) {
     carousel.style.display = "block";
     bodyOverlay.style.display = "block";
+    mainSection.style.zIndex = "-1";
+    navbar.style.zIndex = "-1";
     for (let i = 0; i < productThumbnail.length; i++) {
       if (productThumbnail[i].classList.contains("active")) {
         clearActiveThumbnail("carousel");
@@ -110,6 +124,8 @@ carouselThumbnail.forEach((e) => {
 carouselClose.addEventListener("click", () => {
   carousel.style.display = "none";
   bodyOverlay.style.display = "none";
+  mainSection.style.zIndex = "auto";
+  navbar.style.zIndex = "auto";
 });
 //next button for carousel
 
@@ -195,3 +211,76 @@ function clearActiveThumbnail(location) {
     });
   }
 }
+
+//product counter increase
+counterIncrease.addEventListener("click", () => {
+  let counterNumber = counterAmount.textContent;
+  counterNumber++;
+  counterAmount.textContent = counterNumber;
+});
+//product counter decrease
+
+counterDecrease.addEventListener("click", () => {
+  let counterNumber = counterAmount.textContent;
+  if (counterNumber > 0) {
+    counterNumber--;
+    counterAmount.textContent = counterNumber;
+  }
+});
+
+cartIcon.addEventListener("click", () => {
+  let cartDisplay = document.querySelector(".cartDisplay");
+
+  if (
+    cartDisplay.style.display === "none" ||
+    cartDisplay.style.display === ""
+  ) {
+    cartDisplay.style.display = "flex";
+    if (
+      parseInt(cartNumber.textContent) === 0 ||
+      cartNumber.textContent === ""
+    ) {
+      emptyCart.style.display = "flex";
+      cartWrapper.style.display = "none";
+    } else {
+      cartWrapper.style.display = "flex";
+    }
+  } else {
+    cartDisplay.style.display = "none";
+    emptyCart.style.display = "none";
+  }
+  // if (parseInt(cartNumber.textContent) === 0 || cartNumber.textContent === "") {
+  //   cartDisplay.style.display = "flex";
+  //   emptyCart.style.display = "flex";
+  // } else {
+  //   cartDisplay.style.display = "none";
+  //   emptyCart.style.display = "none";
+  //   cartWrapper.style.display = "flex";
+  // }
+  // if(cartDisplay.style.display = )
+  // // if (
+  // //   cartDisplay.style.display === "none" ||
+  // //   cartDisplay.style.display === ""
+  // // ) {
+  // //   cartDisplay.style.display = "flex";
+  // // } else {
+  // //   cartDisplay.style.display = "";
+  // // }
+});
+
+btnAddToCart.addEventListener("click", () => {
+  let productPrice = document.querySelector(".productPrice");
+  let newPrice = parseInt(productPrice.textContent);
+  let newAmount = parseInt(amount.textContent);
+  let total = newPrice * newAmount;
+
+  cartPrice.textContent = "$" + productPrice.textContent;
+  cartNumber.textContent = amount.textContent;
+  cartTotal.textContent = "$" + total;
+});
+
+deleteCart.addEventListener("click", () => {
+  amount.textContent = 0;
+  cartWrapper.style.display = "none";
+  emptyCart.style.display = "flex";
+});

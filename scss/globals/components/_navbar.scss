@@ -10,6 +10,7 @@ nav {
   .navbar {
     display: flex;
     margin: 2.56rem 0;
+    position: relative;
     // padding: 0 0 2rem 0;
     align-items: baseline;
     max-width: 70.5rem;
@@ -36,7 +37,7 @@ nav {
           color: var(--gray-300);
           &:hover {
             color: var(--darkBlue);
-            border-bottom: 2px solid orange;
+            border-bottom: 2px solid var(--orange-200);
             padding-bottom: 2.81rem;
           }
         }
@@ -55,6 +56,59 @@ nav {
             margin-left: 2.89rem;
             border-radius: 50%;
           }
+        }
+      }
+    }
+    .cartDisplay {
+      position: absolute;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: #ffffff;
+      box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.503143);
+      border-radius: 10px;
+      padding: 1.5rem;
+      font-weight: 100;
+      z-index: 1;
+      .cartWrapper {
+        // display: flex;
+        display: none;
+        align-items: center;
+        gap: 1rem;
+      }
+      .emptyWrapper {
+        display: none;
+        align-items: center;
+        padding: 3rem 8rem;
+        color: var(--gray-300);
+        font-weight: 500;
+      }
+      .cartTitle,
+      .cartTotal {
+        color: var(--darkBlue);
+        font-weight: 600;
+      }
+      .cartImage {
+        max-width: 50px;
+        border-radius: 5px;
+      }
+      .checkout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        background-color: var(--orange-200);
+        color: var(--darkBlue);
+        padding: 1rem;
+        border: none;
+        cursor: pointer;
+        flex-grow: 1;
+        font-weight: 700;
+        transition: 0.3s;
+        &:hover {
+          background-color: #ffab6a;
         }
       }
     }
@@ -118,6 +172,26 @@ nav {
           .avatar {
             margin-left: 1.39rem;
           }
+        }
+      }
+    }
+  }
+}
+
+//500px
+@media (max-width: 500px) {
+  nav {
+    margin: 0 1rem;
+    .navbar {
+      div:last-of-type {
+        top: 8em;
+      }
+      .cartDisplay {
+        width: 100%;
+        .emptyWrapper {
+          margin: 0;
+          justify-content: center;
+          padding: 3rem 0;
         }
       }
     }

@@ -55,6 +55,33 @@
               />
             </li>
           </ul>
+          <div class="cartDisplay">
+            <p class="cartTitle">cart</p>
+            <div class="cartWrapper">
+              <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt="product image"
+                class="cartImage"
+              />
+              <div class="cartInfo">
+                <p class="cartDescription">Fall Limited Edition Sneakers</p>
+                <p>
+                  <span class="cartPrice"></span> X
+                  <span class="cartNumber"></span>
+                  <span class="cartTotal"></span>
+                </p>
+              </div>
+              <img
+                src="./images/icon-delete.svg"
+                alt="delete icon"
+                class="deleteCart"
+              />
+            </div>
+            <div class="emptyWrapper">
+              <p>Your cart is empty</p>
+            </div>
+            <button class="btn checkout">Checkout</button>
+          </div>
         </div>
       </div>
     </nav>
@@ -161,9 +188,9 @@
               everything the weather can offer.
             </p>
             <div class="card-price">
-              <h2>$125.00</h2>
+              <h2>$<span class="productPrice">125.00</span></h2>
               <p>50%</p>
-              <p class="full-price">$250.00</p>
+              <p class="full-price">250.00</p>
             </div>
             <div class="card-footer">
               <div class="card-footer-wrapper">
@@ -173,11 +200,11 @@
                     alt="minus sign"
                     class="decreaseNumber"
                   />
-                  <p class="amount">0</p>
+                  <p><span class="amount">0</span></p>
                   <img
                     src="./images/icon-plus.svg"
                     alt="plus sign"
-                    class="decreaseNumber"
+                    class="increaseNumber"
                   />
                 </div>
                 <button class="btnCart">
