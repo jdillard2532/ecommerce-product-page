@@ -177,6 +177,22 @@ nav .navbar div:last-of-type .navbar-nav .avatar {
   margin-left: 2.89rem;
   border-radius: 50%;
 }
+nav .navbar div:last-of-type .navbar-nav li:first-of-type {
+  position: relative;
+}
+nav .navbar div:last-of-type .navbar-nav li:first-of-type .count {
+  display: none;
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  color: var(--white);
+  background-color: var(--orange-200);
+  border-radius: 50%;
+  width: 19px;
+  height: 15px;
+  text-align: center;
+  font-size: 10px;
+}
 nav .navbar .cartDisplay {
   position: absolute;
   right: 0;

@@ -32,6 +32,7 @@ nav {
           max-width: 26.94rem;
           padding-bottom: 2.81rem;
         }
+
         a {
           text-decoration: none;
           color: var(--gray-300);
@@ -55,6 +56,23 @@ nav {
             max-width: 50px;
             margin-left: 2.89rem;
             border-radius: 50%;
+          }
+          li:first-of-type {
+            position: relative;
+
+            .count {
+              display: none;
+              position: absolute;
+              right: -5px;
+              top: -10px;
+              color: var(--white);
+              background-color: var(--orange-200);
+              border-radius: 50%;
+              width: 19px;
+              height: 15px;
+              text-align: center;
+              font-size: 10px;
+            }
           }
         }
       }

@@ -31,6 +31,8 @@ const cartTotal = document.querySelector(".cartTotal");
 const deleteCart = document.querySelector(".deleteCart");
 const cartWrapper = document.querySelector(".cartWrapper");
 const emptyCart = document.querySelector(".emptyWrapper");
+const count = document.querySelector(".count");
+const body = document.querySelector("body");
 
 let number = 0; // used to change main image on mobile view
 
@@ -249,23 +251,6 @@ cartIcon.addEventListener("click", () => {
     cartDisplay.style.display = "none";
     emptyCart.style.display = "none";
   }
-  // if (parseInt(cartNumber.textContent) === 0 || cartNumber.textContent === "") {
-  //   cartDisplay.style.display = "flex";
-  //   emptyCart.style.display = "flex";
-  // } else {
-  //   cartDisplay.style.display = "none";
-  //   emptyCart.style.display = "none";
-  //   cartWrapper.style.display = "flex";
-  // }
-  // if(cartDisplay.style.display = )
-  // // if (
-  // //   cartDisplay.style.display === "none" ||
-  // //   cartDisplay.style.display === ""
-  // // ) {
-  // //   cartDisplay.style.display = "flex";
-  // // } else {
-  // //   cartDisplay.style.display = "";
-  // // }
 });
 
 btnAddToCart.addEventListener("click", () => {
@@ -277,6 +262,12 @@ btnAddToCart.addEventListener("click", () => {
   cartPrice.textContent = "$" + productPrice.textContent;
   cartNumber.textContent = amount.textContent;
   cartTotal.textContent = "$" + total;
+  count.textContent = cartNumber.textContent;
+  if (count.textContent !== "0") {
+    count.style.display = "block";
+  } else {
+    count.style.display = "none";
+  }
 });
 
 deleteCart.addEventListener("click", () => {
